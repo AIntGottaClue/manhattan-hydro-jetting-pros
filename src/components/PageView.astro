@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Chrome from './Chrome.astro';
 import content from '../data/content.json';
+import images from '../data/images.json';
 import { siteConfig } from '../data/siteConfig';
 const { slug } = Astro.props;
 const pg = content.pages[slug];
@@ -15,6 +16,7 @@ const crumbs = home ? null : { '@context': 'https://schema.org', '@type': 'Bread
 const ld = [...pg.ld.map((j) => j.replace(/("@type":"WebPage"[^}]*?)"name"/, '$1"dateModified":"' + modified + '","name"')), ...(crumbs ? [JSON.stringify(crumbs)] : [])];
 const tel = 'tel:' + siteConfig.phoneHref;
 const heroImg = home ? siteConfig.heroImage : null;
+const figs = images[slug] || {};
 const hasForm = !!pg.formHtml;
 ---
 <Base title={pg.title} desc={pg.desc} canonical={url} ld={ld} hero={heroImg} modified={modified}>
@@ -39,7 +41,7 @@ const hasForm = !!pg.formHtml;
   </section>
   {pg.intro && <section class="sec sec-lede"><div class="sec-in prose"><p set:html={fill(pg.intro)} /></div></section>}
   {pg.sections.map((s, i) => (
-    <section class={`sec sec-${s.kind} sec-${i % 2 ? 'b' : 'a'}`}><div class="sec-in" set:html={fill(s.html)} /></section>
+    <section class={`sec sec-${s.kind} sec-${i % 2 ? 'b' : 'a'}`}><div class="sec-in"><Fragment set:html={fill(s.html)} />{figs[String(i)] && <figure class="sec-fig"><img src={figs[String(i)].src} alt={figs[String(i)].alt} width={figs[String(i)].w} height={figs[String(i)].h} loading="lazy" decoding="async" /></figure>}</div></section>
   ))}
   {pg.faq && (
     <section class="sec sec-faq"><div class="sec-in">
