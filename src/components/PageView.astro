@@ -28,7 +28,6 @@ const hasForm = !!pg.formHtml;
     <div class="hero-in">
       <div class="hero-copy">
         {pg.bc && <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / {pg.bc}</nav>}
-        {home && <p class="pill">{siteConfig.cityState}</p>}
         <h1 set:html={fill(pg.h1)} />
         <p class="hero-p" set:html={fill(pg.heroP)} />
         <div class="hero-actions">
