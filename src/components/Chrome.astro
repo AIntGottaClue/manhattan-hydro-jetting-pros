@@ -16,7 +16,7 @@ const drop = '<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke
 <header class="hdr" data-hdr>
   <div class="hdr-in">
     <a class="brand" href="/" aria-label={brand + ' home'}><span class="brand-ico" set:html={drop} /><span class="brand-txt">{b1}{" "}<em>{b2}</em>{" "}{b3}</span></a>
-    <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-label="Toggle menu"><svg class="mobile-menu-hamburger" aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="mobile-menu-x" aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
     <nav class="nav" data-nav aria-label="Main navigation">
       <a href="/">Home</a>
       <div class="dd"><button type="button" class="dd-btn" aria-expanded="false">Services <span aria-hidden="true">&#8964;</span></button>

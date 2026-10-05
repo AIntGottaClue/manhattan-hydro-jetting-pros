@@ -36,3 +36,11 @@
 @media(max-width:640px){.sec-in{padding:56px 18px}.sec-cards .sec-in,.sec-steps ol,.ftr-in{grid-template-columns:1fr}.hero-actions .btn{width:100%}}
 
 .sec-fig{margin:28px 0 0;max-width:900px}.sec-fig img{display:block;width:100%;height:auto;max-height:460px;object-fit:cover;border-radius:16px}@media(max-width:640px){.sec-fig img{max-height:260px}}
+
+/* Mobile menu: hamburger/X icons (no box), open menu above the sticky call/deal button. */
+.menu-btn{color:currentColor;border:0!important;background:none!important;box-shadow:none!important;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.menu-btn .mobile-menu-x{display:none}
+.menu-btn[aria-expanded="true"] .mobile-menu-hamburger{display:none}
+.menu-btn[aria-expanded="true"] .mobile-menu-x{display:block}
+.menu-btn:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media(max-width:1100px){.hdr:has(.menu-btn[aria-expanded="true"]){z-index:2001}}
