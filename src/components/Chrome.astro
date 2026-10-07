@@ -44,5 +44,8 @@ const drop = '<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke
   <div class="ftr-copy">(c) 2026 {brand}. No service or result is guaranteed.</div>
 </footer>
 <a class="fab-deal" href={tel} aria-label={`Call ${brand} at ${phone}`}><span class="fab-deal-ico" aria-hidden="true" set:html={phoneIcon} /><span class="fab-deal-text"><span class="fab-deal-text-k">{brand}</span><span class="fab-deal-text-v">{phone}</span></span></a>
+<script is:inline>
+(function(){function run(){if(!('IntersectionObserver' in window))return;var forms=document.querySelectorAll('form[data-lead-form]');if(!forms.length)return;var fx=[].filter.call(document.querySelectorAll('body *'),function(e){return getComputedStyle(e).position==='fixed'&&!e.closest('header')&&(e.matches('a[href^="tel:"]')||e.querySelector('a[href^="tel:"]'))&&e.getClientRects().length});if(!fx.length)return;fx.forEach(function(e){e.style.transition='opacity .2s ease'});var vis=new Set();var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){vis.add(x.target)}else{vis.delete(x.target)}});fx.forEach(function(e){e.style.opacity=vis.size?'0':'';e.style.pointerEvents=vis.size?'none':''})});forms.forEach(function(f){io.observe(f)})}if(document.readyState==='complete'){run()}else{window.addEventListener('load',run)}})();
+</script>
 </>
 )}
